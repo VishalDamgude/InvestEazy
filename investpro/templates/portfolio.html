@@ -1,0 +1,132 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="portfolio">
+<h1><p>Balance : {{investor.balance}}</p></h1>
+<h1>Current Value: {{current_value}} </h1>
+<h2>Invested Value: {{invested_value}} </h2>
+
+<div class="container-investments">
+<div class="investment-class">
+
+{% for investment, stockPrice in investments.items %}
+<div class="investments">
+<a href="stocks/{{investment.stock.symbol}}">{{investment.stock.companyName}}</a> 
+{{investment.n_shares}} shares
+{{investment.avg_price}}
+
+<div class="deets">
+
+{% if stockPrice.1 >= stockPrice.2 %}
+
+<div class="profit">
+    <ul>
+        <li>CurrentPrice {{stockPrice.0}}</li>
+        <li>Current Value: {{stockPrice.1}}</li>
+        <li>Invested Value: {{stockPrice.2}}</li>
+    </ul>
+    <a href="stocks/{{investment.stock.symbol}}/buy"><button class="buy">Buy</button></a>
+    <a href="stocks/{{investment.stock.symbol}}/sell"><button class="sell" >Sell</button></a>
+    
+</div>
+
+{% else %}
+
+<div class="loss">
+    <ul>
+        <li>CurrentPrice {{stockPrice.0}}</li>
+        <li>Current Value: {{stockPrice.1}}</li>
+        <li>Invested Value: {{stockPrice.2}}</li>
+    </ul>
+    <a href="stocks/{{investment.stock.symbol}}/buy"><button class="buy">Buy</button></a>
+<a href="stocks/{{investment.stock.symbol}}/sell"><button class="sell" >Sell</button></a>
+
+</div>
+
+
+{% endif %}
+
+
+</div>
+<br>
+<hr>
+
+</div>
+{% endfor %}
+
+</div>
+</div>
+</div>
+
+<style type="text/css">
+
+    .portfolio{
+        margin: 50px 0;
+        padding: 50px;
+        display: flex;
+        flex-direction: column;
+        justify-content:space-around;
+        align-items: center;
+    }
+
+    .container-investments{
+        display: flex;
+        align-items: center;
+    }
+    .investment-class{
+
+        /* margin:auto;
+        
+        margin-left: 30%; */
+        margin-top: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        align-content: center;
+        justify-content: space-evenly;
+    }
+
+    .investments{
+        justify-content: space-evenly;
+    }
+
+    .investments:hover{
+        transform: scale(1.3);
+    }
+
+    .deets{
+        display: grid;
+        grid-template-rows:repeat(1fr);
+        font-size: small;
+    }
+
+    .profit{
+        border-radius: 10px;
+        box-shadow: black;
+        background-color: beige;
+        color: black;
+        border: 5px solid var(--primary-color);
+    }
+
+    .loss{
+        border-radius: 10px;
+        box-shadow: black;
+        background-color: beige;
+        color: rgb(236, 37, 37);
+        border: 5px solid rgb(236, 37, 37);
+    }
+
+    ul{
+        display: flex;
+        justify-content: space-between;
+    }
+    li{
+        font-size: 15px;
+        padding :30px;
+        list-style-type: none;
+    }
+</style> 
+
+{% endblock %}
+
+<!-- in stockPrice, the 0th element is the price and the 1st element is the price*n_shares(current amount)  in the 2nd element avg_price * n_shares(invested amount) -->

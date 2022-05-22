@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="info">
+    <h2> <a href="https://www.google.com/search?q={{stock.companyName}}-stock-price" target="_blank">{{stock.companyName}}</a></h2>
+    <h4> {{stock.symbol}} </h4>
+</div>
+
+{% if investment is none %}
+You do not own shares of this company.
+{% else %}
+You own {{investment.n_shares}} shares of this company at Rs {{investment.avg_price}}
+{% endif %}
+<br>
+
+Current Price : Rs {{price}}<br>
+<a href="/stocks/{{stock.symbol}}/buy"> <button class="buy">Buy</button> </a> 
+<a href="/stocks/{{stock.symbol}}/sell"> <button class="sell">Sell</button> </a> 
+
+
+
+
+{% endblock %}
+

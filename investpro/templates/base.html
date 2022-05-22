@@ -1,0 +1,229 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="description" content="Affordable and professional web design">
+	<meta name="keywords" content="web design, affordable web design, professional web design">
+	<meta name="author" content="Ayush Sahu">
+	<title>InvestEazy | Welcome</title>
+	<link rel="stylesheet" type="text/css" href="./css/style.css">
+</head>
+
+<body>
+
+<header>
+    <div class="container">
+        
+        <div class="branding">
+            <a href="/"><h1>InvestEazy</h1></a>
+        </div>  
+        {% if user.is_authenticated %}
+            <nav>
+                <ul>
+                    <li><a href="/top-movers">Top Movers</a></li>
+                    <li><a href="/all-stocks">All Stocks</a></li>
+                    <li><a href="/profile">Profile</a></li>
+                    <li><a href="/portfolio">Portfolio</a></li>
+                    <li><a href="/notifications">Orders</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+            </nav>
+        {% else %}
+        <nav>
+            <ul>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Signup</a></li>
+            </ul>
+        </nav>
+        {% endif %}
+        
+
+    </div>
+</header>
+
+<div class="container">
+<div class="block">
+{%block content%}
+{%endblock%}
+</div>
+</div>
+
+<footer>
+    <p>InvestEazy, Copyright &copy; 2021</p>
+</footer>
+
+
+
+</body>
+
+
+<style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&family=Open+Sans:wght@300&display=swap');
+
+    *{
+        font-family: 'Montserrat', sans-serif;
+        padding: 0;
+        margin: 0;
+    }
+
+    :root{
+        --primary-color: #3538e9;
+        --secondary-color: #8B5CF6;
+        --bg-color: #ece9e9;
+    }
+
+    body{
+	padding: 0;
+	margin: 0;
+	background-color: var(--bg-color) ; 
+    }
+
+    .container{
+        overflow: auto;
+        display: flex;
+        font-family: Helvetica;
+        text-align: center;
+        width: 80%;
+        justify-content: space-between;
+        align-items: center;  
+        margin: auto; 
+        position: relative;
+    }
+
+    .block{
+        margin: auto;
+    }
+
+    header{
+    display: flex;
+	background-color: var(--primary-color);
+	color: #ffffff;
+    border-bottom: var(--primary-color) 3px solid;
+    height: 90px;
+    align-items: center;
+
+    }
+
+    header nav a{
+        color: white;
+        text-decoration: none;
+        text-transform: uppercase;
+        font-size: 12px;
+    }
+
+    header a:hover{
+        border-bottom: 1px solid white;
+        transform: scale(0.97);
+    }
+
+
+    header ul{
+        display: flex;
+        flex-direction: row;
+    }
+
+    header li{
+/*        flex-direction: row;*/
+        list-style-type:none;
+        color: white;
+        padding: 0px 20px 0px 20px;
+        margin-top: 5%;
+    }
+
+    .branding h1{
+        color: white;
+        float: left;
+        margin-left: 0;
+    }
+
+    .buy{
+        padding: 15px;
+        border-radius: 10px;
+        background: var(--secondary-color);
+        color: white;
+        margin: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+
+    .sell{
+        padding: 15px;
+        border-radius: 10px;
+        background: var(--secondary-color);
+        color: white;
+        margin: 10px;
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+    a{
+        text-decoration: none;
+        color: black;
+        font-weight: bold;
+    }
+
+    a :hover{
+        transform: scale(0.98);
+        cursor: pointer;
+    }
+
+    button{
+        cursor: pointer;
+    }
+
+
+    footer{
+	padding: 20px;
+	margin-top: 20px;
+	color: #ffffff;
+	background-color: var(--primary-color);
+	text-align: center;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+/*
+header #branding h1{
+    font-size: 200;
+	margin: 0;
+    float: left;
+	margin-top:20px; 
+}
+
+header nav{
+	float:right;
+    color: #cccccc;
+	margin-bottom: 30px;
+}
+
+header .highlight, header .current a{
+	color: #e8491d;
+	font-weight: bold;
+    margin-bottom:20px;
+}
+
+
+header a:hover{
+	color: #cccccc;
+	font-weight: bold;
+}
+
+
+    .brand{
+        float: left;
+    }
+
+    nav{
+        float: right;
+    }
+
+*/
+    
+</style>
+
+
+</html>
