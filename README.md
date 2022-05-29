@@ -13,6 +13,9 @@
 
 # Screenshots:
 ![Alt text](./Docs/HomePage.PNG?raw=true "HomePage")
+![Alt text](./Docs/NSEStocksListPage.PNG?raw=true "NSE Stocks")
+![Alt text](./Docs/TopMoversPage.PNG?raw=true "NSE Top Movers")
+![Alt text](./Docs/PortfolioPage.PNG?raw=true "Portfolio")
 
 # Steps for Installation:
 
