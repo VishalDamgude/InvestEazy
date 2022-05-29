@@ -11,6 +11,8 @@
 - A portfolio which shows all your stocks, as well as the amount invested in them and the current value.
 - Simplistic color coding to show which investments have been profitable.
 
+# Screenshots:
+![Alt text](./Docs/HomePage.PNG?raw=true "HomePage")
 
 # Steps for Installation:
 
